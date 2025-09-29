@@ -9,6 +9,12 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #fafafa;
+}
+html,body{
+  height: 100%;
+  margin: 0;
+  overflow-y: hidden;
 }
 
 code {
