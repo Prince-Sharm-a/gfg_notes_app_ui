@@ -42,7 +42,7 @@
   border-color: rgb(173, 255, 47);
   background-color: rgb(173, 255, 47, 0.3);
   border-style: inset;
-  position: absolute;
+  position: fixed;
   top: 0px;
   left: 0px;
   width: 100%;
@@ -60,8 +60,11 @@
 
 .side-bar{
   width: 230px;
+  height: 96px;
+  position: fixed;
+}
+.side-bar.active{
   height: 100%;
-  position: absolute;
 }
 
 .side-bar-icon{
@@ -131,4 +134,69 @@
 
 .side-bar-active{
   background-color: rgb(173, 255, 47, 0.3);
+}
+
+.side-bar.active ~main{
+  position: relative;
+  left: 235px;
+}
+
+main{
+  display: flex;
+  flex-wrap: wrap;
+  position:relative;
+  top: 100px;
+  /* left: 235px; */
+  height: 100vh;
+  /* justify-content: center; */
+  /* align-items: center; */
+}
+
+.note-input-jsx{
+  /* display: flex; */
+  position: absolute;
+  margin: 0 40%;
+}
+.note-input-jsx input{
+  height: 100px;
+  display: flex;
+  flex-wrap: wrap;
+  width: 200px;
+  padding: 5px;
+  border: 1px solid whitesmoke;
+  border-radius: 10px;
+  border-style: inset;
+  margin-bottom: 5px;
+  /* background-color: whitesmoke; */
+}
+.note-input-jsx textarea{
+  width: 300px;
+  padding: 5px;
+  border-radius: 10px;
+  border:1px solid whitesmoke;
+  /* background-color: whitesmoke; */
+  border-style: inset;
+  resize: none;
+}
+.note-input-jsx .title{
+  height: 80px;
+}
+.note-input-jsx .note{
+  height: 400px;
+}
+
+.note-input-jsx #note-add-button{
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  height: 30px;
+  width: 30px;
+  display: flex;
+  font-size: 28px;
+  font-weight: 500;
+  justify-content: center;
+  align-items: center;
+  border:1px solid whitesmoke;
+  border-style: outset;
+  border-radius: 15px;
 }

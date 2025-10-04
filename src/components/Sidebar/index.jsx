@@ -4,7 +4,7 @@ import home_icon from "./home_icon.png"
 import dustbin_icon from "./dustbin_icon.png"
 import archive_icon from "./archive_icon.png"
 import important_icon from "./icon_for_important_collection.png"
-import { memo, useState } from "react"
+import { memo, useCallback, useState } from "react"
 
 export const Sidebar = memo(()=>{
     const [isMenuClicked,setMenuClicked]=useState(false)
@@ -14,16 +14,16 @@ export const Sidebar = memo(()=>{
         setMenuClicked(!isMenuClicked)
         setMenuActive(!isMenuActive)
     }
-    const sidebarstyle=({isActive})=>{
+    const sidebarstyle=useCallback(({isActive})=>{
         // console.log(isActive)
         return (
             `side-bar-item ${isActive ? 'side-bar-active' : 'side-bar-inactive' }`
         )
-    }
+    },[])
     return (
-        <aside className="bg-none side-bar">
+        <aside className={"bg-none side-bar "+`${isMenuActive ? 'active': ''}`}>
             <div className="size-24 flex items-center side-bar-icon">
-                <img onClick={onmenuClick} className={`size-14 items-center menu-logo ${isMenuActive ? isMenuClicked ? 'spin move' : '' : ''} cursor-pointer`} src={menu_logo} />
+                <img onClick={onmenuClick} className={`size-14 items-center menu-logo ${isMenuClicked ? 'spin move' : '' } cursor-pointer`} src={menu_logo} />
             </div>
             <div className={` side-bar-items-container ${isMenuActive ? '' : 'hide'}`}>
                 <NavLink to={"/home"} className={sidebarstyle}>
