@@ -1,5 +1,6 @@
 import axios from "axios"
 import { memo, useCallback, useEffect, useState } from "react"
+import AddIcon from '@mui/icons-material/Add';
 
 export const NotesInput=memo((props)=>{
     const initialState={
@@ -38,7 +39,7 @@ export const NotesInput=memo((props)=>{
         <div className="note-input-jsx">
             <textarea className="title" onChange={ontitleChange} value={note.title} name="title" placeholder="Enter title....." /><br/>
             <textarea className="note" onChange={onnoteChange} value={note.note} name="note" placeholder="Write notes....." />
-            <button id="note-add-button" onClick={handleAddButton}>+</button>
+            <button id="note-add-button" onClick={handleAddButton}><AddIcon></AddIcon></button>
         </div>
         </>
     )

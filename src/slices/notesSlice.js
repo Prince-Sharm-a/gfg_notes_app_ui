@@ -8,6 +8,17 @@ const notesSlice = createSlice({
     name:"note",
     initialState,
     reducers:{
-        getnotes:
+        getnotes:(state,action)=>{
+
+        },
+        addnotes:(state,action)=>{
+
+        },
+        updnotes:(state,action)=>{
+
+        },
+        deletenotes:(state,action)=>{
+
+        }
     }
 })
