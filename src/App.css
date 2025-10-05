@@ -139,6 +139,10 @@
 .side-bar.active ~main{
   position: relative;
   left: 235px;
+  /* width: calc(100%-235px); */
+  margin: 0 30%;
+  /* transition: all 0.3s ease-in-out; */
+  /* transform: translateX(30%); */
 }
 
 main{
@@ -148,14 +152,17 @@ main{
   top: 100px;
   /* left: 235px; */
   height: 100vh;
+  margin: 0 40%;
   /* justify-content: center; */
   /* align-items: center; */
+  transition: all 0.3s ease-in-out;
+  /* transform: translateX(40%);g */
 }
 
 .note-input-jsx{
   /* display: flex; */
   position: absolute;
-  margin: 0 40%;
+  /* margin: 0 40%; */
 }
 .note-input-jsx input{
   height: 100px;
@@ -177,12 +184,13 @@ main{
   /* background-color: whitesmoke; */
   border-style: inset;
   resize: none;
+  scrollbar-width: none;
 }
 .note-input-jsx .title{
-  height: 80px;
+  min-height: 80px;
 }
 .note-input-jsx .note{
-  height: 400px;
+  min-height: 400px;
 }
 
 .note-input-jsx #note-add-button{
