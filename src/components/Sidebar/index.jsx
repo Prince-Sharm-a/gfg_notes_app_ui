@@ -5,15 +5,21 @@ import dustbin_icon from "./dustbin_icon.png"
 import archive_icon from "./archive_icon.png"
 import important_icon from "./icon_for_important_collection.png"
 import { memo, useCallback, useState } from "react"
+import { useDispatch, useSelector } from "react-redux"
+import { setMenuActive,setMenuClicked } from "../../slices/componentSlice"
 
 export const Sidebar = memo(()=>{
-    const [isMenuClicked,setMenuClicked]=useState(false)
-    const [isMenuActive,setMenuActive]=useState(false)
+    // const [isMenuClicked,setMenuClicked]=useState(false);
+    const dispatch=useDispatch();
+    const { isMenuActive , isMenuClicked } = useSelector(state=>state.activeComponent)
+    // const [isMenuActive,setMenuActive]=useState(false)
     
-    const onmenuClick=()=>{
-        setMenuClicked(!isMenuClicked)
-        setMenuActive(!isMenuActive)
-    }
+    const onmenuClick=useCallback(()=>{
+        dispatch(setMenuClicked())
+        dispatch(setMenuActive())
+        // setMenuActive(!isMenuActive)
+        // console.log(isMenuActive,isMenuClicked)
+    },[isMenuActive])
     const sidebarstyle=useCallback(({isActive})=>{
         // console.log(isActive)
         return (

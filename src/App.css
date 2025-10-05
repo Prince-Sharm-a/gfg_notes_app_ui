@@ -138,11 +138,11 @@
 
 .side-bar.active ~main{
   position: relative;
-  left: 235px;
+  /* left: 235px; */
   /* width: calc(100%-235px); */
   margin: 0 30%;
-  /* transition: all 0.3s ease-in-out; */
-  /* transform: translateX(30%); */
+  /* transition: all 2s ease; */
+  transform: translateX(235px);
 }
 
 main{
@@ -155,8 +155,8 @@ main{
   margin: 0 40%;
   /* justify-content: center; */
   /* align-items: center; */
-  transition: all 0.3s ease-in-out;
-  /* transform: translateX(40%);g */
+  transition: all 2s ease;
+  transform: translateX(0);
 }
 
 .note-input-jsx{
