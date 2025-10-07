@@ -43,6 +43,7 @@
   background-color: rgb(173, 255, 47, 0.3);
   border-style: inset;
   position: fixed;
+  justify-content: center;
   top: 0px;
   left: 0px;
   width: 100%;
@@ -50,7 +51,7 @@
   -webkit-backdrop-filter: blur(5px);
   /* background:transparent; */
 }
-.navbar img{
+.navbar-icon{
   position: absolute;
   height: 6rem;
   width: 6rem;
@@ -139,29 +140,37 @@
 .side-bar.active ~main{
   position: relative;
   /* left: 235px; */
-  /* width: calc(100%-235px); */
-  margin: 0 30%;
+  width: calc(100% - 235px);
+  /* margin: 0 30%; */
   /* transition: all 2s ease; */
   transform: translateX(235px);
+
 }
 
 main{
   display: flex;
   flex-wrap: wrap;
+  /* flex-direction: row; */
   position:relative;
   top: 100px;
   /* left: 235px; */
   height: 100vh;
-  margin: 0 40%;
-  /* justify-content: center; */
-  /* align-items: center; */
-  transition: all 2s ease;
+  width: 100%;
+  gap: 10px;
+  overflow: hidden;
+  /* margin: 0 40%; */
+  justify-content: center;
+  /* align-items: flex-start; */
+  transition: all 1s ease;
   transform: translateX(0);
 }
 
 .note-input-jsx{
   /* display: flex; */
-  position: absolute;
+  position: relative;
+  width: 300px;
+  height: 480px;
+  /* overflow: hidden; */
   /* margin: 0 40%; */
 }
 .note-input-jsx input{
@@ -195,8 +204,8 @@ main{
 
 .note-input-jsx #note-add-button{
   position: absolute;
-  bottom: 10px;
-  right: 10px;
+  bottom: 0px;
+  right: 5px;
   height: 30px;
   width: 30px;
   display: flex;
@@ -207,4 +216,55 @@ main{
   border:1px solid whitesmoke;
   border-style: outset;
   border-radius: 15px;
+}
+
+
+
+.notes-section-header{
+  position: absolute;
+  right: 10px;
+  border: 1px solid rgb(173, 255, 47);
+  background-color: rgb(173, 255, 47, 0.2);
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+  border-style: inset;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  opacity: 1;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  cursor: pointer;
+  transition: all 1s ease-in-out;
+  transform: translateX(0);
+}
+.notes-section-header.move{
+  transform: translateX(0px);
+  right: 355px;
+}
+
+.notes-section{
+  position: absolute;
+  right: 0px;
+  width: 350px;
+  border:1px solid rgb(173, 255, 47);
+  border-style: outset;
+  height: 100%;
+  transition: all 1s ease-in-out;
+  transform: translateX(0px);
+  background-color:none;
+  margin-right: 5px;
+  scrollbar-width: none;
+  padding: 5px;
+}
+.notes-section.hide{
+  transform: translateX(350px);
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.notes-card{
+
 }
