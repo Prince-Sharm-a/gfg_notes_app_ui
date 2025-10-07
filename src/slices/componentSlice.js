@@ -2,7 +2,8 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState={
     isMenuActive:false,
-    isMenuClicked:false
+    isMenuClicked:false,
+    isNoteSecActive:false
 }
 
 const componentSlice=createSlice({
@@ -10,13 +11,16 @@ const componentSlice=createSlice({
     initialState,
     reducers:{
         setMenuActive:(state,action)=>{
-            state.isMenuActive= !state.isMenuActive
+            state.isMenuActive= !state.isMenuActive;
         },
         setMenuClicked:(state,action)=>{
-            state.isMenuClicked= !state.isMenuClicked
+            state.isMenuClicked= !state.isMenuClicked;
+        },
+        setNoteSecActive:(state,action)=>{
+            state.isNoteSecActive= action.payload ? action.payload?.NoteSecActive : !state.isNoteSecActive;
         }
     }
 })
 
-export const { setMenuActive, setMenuClicked } = componentSlice.actions;
+export const { setMenuActive, setMenuClicked, setNoteSecActive } = componentSlice.actions;
 export default componentSlice.reducer;

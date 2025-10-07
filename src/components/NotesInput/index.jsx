@@ -12,7 +12,7 @@ export const NotesInput=memo((props)=>{
     const [note,setNote]=useState(initialState)
     useEffect(()=>{
         setNote({...initialState,important:props.important || false,archive:props.archive || false})
-        console.log("useEffect",note)
+        // console.log("useEffect",note)
     },[])
     const ontitleChange=(e)=>{
         setNote({...note,title:e.target.value})
