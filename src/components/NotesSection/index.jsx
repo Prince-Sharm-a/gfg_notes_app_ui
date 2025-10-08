@@ -16,6 +16,7 @@ export const NotesSection=memo((data)=>{
 
     useEffect(()=>{
         dispatch(setNoteSecActive({NoteSecActive:false}))
+        console.log("note section ",data)
         // return ()=>{
         //     dispatch(setNoteSecActive({NoteSecActive:false}))
         // }

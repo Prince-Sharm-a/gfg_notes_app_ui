@@ -1,24 +1,22 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-initialState={
-    notes:[]
+const initialState={
+    notes:[],
+    important:[],
+    archive:[],
 }
 
 const notesSlice = createSlice({
     name:"note",
     initialState,
     reducers:{
-        getnotes:(state,action)=>{
-
+        setnotes:(state,action)=>{
+            state.notes=action.payload;
+            state.important=action.payload.filter(n => n?.important);
+            state.archive=action.payload.filter(n => n?.archive);
         },
-        addnotes:(state,action)=>{
-
-        },
-        updnotes:(state,action)=>{
-
-        },
-        deletenotes:(state,action)=>{
-
-        }
     }
 })
+
+export const { setnotes } = notesSlice.actions
+export default notesSlice.reducer

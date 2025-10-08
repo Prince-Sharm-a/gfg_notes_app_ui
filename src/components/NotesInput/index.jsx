@@ -1,6 +1,8 @@
 import axios from "axios"
 import { memo, useCallback, useEffect, useState } from "react"
 import AddIcon from '@mui/icons-material/Add';
+import { useDispatch } from "react-redux";
+import { addNotes, getNotes } from "../../api/notes";
 
 export const NotesInput=memo((props)=>{
     const initialState={
@@ -10,6 +12,7 @@ export const NotesInput=memo((props)=>{
         archive:false
     }
     const [note,setNote]=useState(initialState)
+    const dispatch = useDispatch()
     useEffect(()=>{
         setNote({...initialState,important:props.important || false,archive:props.archive || false})
         // console.log("useEffect",note)
@@ -27,7 +30,11 @@ export const NotesInput=memo((props)=>{
             //     new_note:note
             // })
             console.log(note)
-            setNote({...initialState,important:props.important || false,archive:props.archive || false})
+            if(note.title.length > 0 ){
+                dispatch(addNotes(note))
+            }
+            setNote({...note,title:'',note:''});
+            dispatch(getNotes());
         }
         catch(e){
             return e.message
