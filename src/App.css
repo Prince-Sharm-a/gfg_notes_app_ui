@@ -140,10 +140,10 @@
 .side-bar.active ~main{
   position: relative;
   /* left: 235px; */
-  width: calc(100% - 235px);
+  width: calc(100% - 231px);
   /* margin: 0 30%; */
   /* transition: all 2s ease; */
-  transform: translateX(235px);
+  transform: translateX(231px);
 
 }
 
@@ -163,6 +163,8 @@ main{
   /* align-items: flex-start; */
   transition: all 1s ease;
   transform: translateX(0);
+  background: url(./freepik__talk__53350.png);
+  background-size: cover;
 }
 
 .note-input-jsx{
@@ -193,7 +195,9 @@ main{
   /* background-color: whitesmoke; */
   border-style: inset;
   resize: none;
+  background: none;
   scrollbar-width: none;
+  outline: none;
 }
 .note-input-jsx .title{
   min-height: 80px;

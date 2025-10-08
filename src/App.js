@@ -7,10 +7,17 @@ import { Sidebar } from './components/Sidebar';
 import { Important } from './pages/important';
 import { Archive } from './pages/archive';
 import { Bin } from './pages/bin';
-import { Provider } from 'react-redux';
+import { Provider, useDispatch } from 'react-redux';
 import { store } from './store/store';
+import { useDebugValue, useEffect } from 'react';
+import { getNotes } from './api/notes';
 
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(()=>{
+    dispatch(getNotes())
+  },[])
   return (
     <>
     <Provider store={store}>
