@@ -2,8 +2,9 @@ import { memo, useEffect, useState } from "react";
 import ArticleIcon from '@mui/icons-material/Article';
 import { useDispatch,useSelector } from "react-redux";
 import { setNoteSecActive } from "../../slices/componentSlice";
+import { getNotes } from "../../api/notes";
 
-export const NotesSection=memo((data)=>{
+export const NotesSection=memo(({data})=>{
     const dispatch = useDispatch();
     const { isNoteSecActive } = useSelector(state=>state.activeComponent)
     // const [isNoteSecActive,setNoteSecActive]=useState(false)
@@ -11,7 +12,7 @@ export const NotesSection=memo((data)=>{
 
     const handleNoteSecClick =()=>{
         // setNoteSecActive(!isNoteSecActive)
-        dispatch(setNoteSecActive())
+        dispatch(setNoteSecActive());
     }
 
     useEffect(()=>{
@@ -31,8 +32,8 @@ export const NotesSection=memo((data)=>{
             {
                 data.length > 0 && data.map(note=>(
                 <div className="notes-card" key={note?.id}>
-                    <h4>{note.title}</h4><br/>
-                    <span>{note.note}</span>
+                    <h4 className="notes-card-title font-serif">{note.title}</h4>
+                    <span className="notes-card-note font-serif">{note.note}</span>
                 </div>
                 ))
             }
