@@ -9,7 +9,7 @@ import { data } from "react-router-dom";
 
 export const Home=memo(()=>{
     const { notes } = useSelector(state => state.note)
-    console.log(notes)
+    // console.log("notes",notes)
     return (
         <>
         <Navbar />

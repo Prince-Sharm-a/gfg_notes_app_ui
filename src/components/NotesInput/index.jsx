@@ -29,9 +29,9 @@ export const NotesInput=memo((props)=>{
             // await axios.post('/add_note',{
             //     new_note:note
             // })
-            console.log(note)
+            // console.log(note)
             if(note.title.length > 0 ){
-                dispatch(addNotes(note))
+                await dispatch(addNotes(note))
             }
             setNote({...note,title:'',note:''});
             dispatch(getNotes());

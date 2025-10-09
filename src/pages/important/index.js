@@ -4,8 +4,10 @@ import { Sidebar } from "../../components/Sidebar";
 import { NotesInput } from "../../components/NotesInput";
 import { useFormState } from "react-dom";
 import { NotesSection } from "../../components/NotesSection";
+import { useSelector } from "react-redux";
 
 export const Important=memo(()=>{
+    const { important }=useSelector(state => state.note);
     
     return (
         <>
@@ -13,7 +15,7 @@ export const Important=memo(()=>{
         <Sidebar />
         <main>
             <NotesInput important={true}/>
-            <NotesSection />
+            <NotesSection data={important} />
         </main>
         </>
     )
