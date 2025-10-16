@@ -7,6 +7,16 @@ import important_icon from "./icon_for_important_collection.png"
 import { memo, useCallback, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { setMenuActive,setMenuClicked } from "../../slices/componentSlice"
+import HomeIcon from '@mui/icons-material/Home';
+import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined'
+import HomeRoundedIcon from '@mui/icons-material/HomeRounded'
+import HomeTwoToneIcon from '@mui/icons-material/HomeTwoTone'
+import ArchiveRoundedIcon from '@mui/icons-material/ArchiveRounded';
+import ArchiveOutlinedIcon from '@mui/icons-material/ArchiveOutlined';
+import LabelImportantRoundedIcon from '@mui/icons-material/LabelImportantRounded';
+import LabelImportantOutlineIcon from '@mui/icons-material/LabelImportantOutline';
+import DeleteOutline from '@mui/icons-material/DeleteOutline';
+import DeleteIcon from '@mui/icons-material/Delete';
 
 export const Sidebar = memo(()=>{
     // const [isMenuClicked,setMenuClicked]=useState(false);
@@ -33,28 +43,75 @@ export const Sidebar = memo(()=>{
             </div>
             <div className={` side-bar-items-container ${isMenuActive ? '' : 'hide'}`}>
                 <NavLink to={"/home"} className={sidebarstyle}>
-                    <div>
-                        <img className="size-6 mr-1" src={home_icon} />
-                    </div>
-                    <div>Home</div>
+                {
+                    ({isActive})=>(
+                        <>
+                        <div className="flex">
+                        {/* <img className="size-6 mr-1" src={home_icon} /> */}
+                        {
+                            isActive ? 
+                            <HomeRoundedIcon  style={{fontSize:"28px"}} /> :
+                            <HomeOutlinedIcon style={{fontSize:"28px"}} />  
+                            // <HomeIcon style={{fontSize:'28px'}} /> 
+                            // <HomeTwoToneIcon />
+                        }
+                        </div>
+                        <div>Home</div>
+                        </>
+                    )
+                }
+                    
                 </NavLink>
                 <NavLink to={"/archive"} className={sidebarstyle}>
-                    <div>
-                        <img className="size-8 mr-1" src={archive_icon} />
-                    </div>
-                    <div>Archive</div>
+                {
+                    ({isActive})=>(
+                        <>
+                        <div className="flex">
+                            {
+                                isActive ?
+                                <ArchiveRoundedIcon  style={{fontSize:"28px"}} /> :
+                                <ArchiveOutlinedIcon style={{fontSize:"28px"}} /> 
+                            }
+                            {/* <img className="size-8 mr-1" src={archive_icon} /> */}
+                        </div>
+                        <div>Archive</div>
+                        </>
+                    )
+                }
                 </NavLink>
                 <NavLink to={"/important"} className={sidebarstyle}>
-                    <div>
-                        <img className="size-6 mr-1" src={important_icon} />
-                    </div>
-                    <div>Important</div>
+                {
+                    ({isActive})=>(
+                        <>
+                        <div className="flex">
+                            {/* <img className="size-6 mr-1" src={important_icon} /> */}
+                            {
+                                isActive ? 
+                                <LabelImportantRoundedIcon style={{fontSize:"28px"}} /> :
+                                <LabelImportantOutlineIcon style={{fontSize:"28px"}} /> 
+                            }
+                        </div>
+                        <div>Important</div>
+                        </>
+                    )
+                }
                 </NavLink>
                 <NavLink to={"/bin"} className={sidebarstyle}>
-                    <div>
-                        <img className="size-8 mr-1" src={dustbin_icon} />
-                    </div>
-                    <div>Bin</div>
+                {
+                    ({isActive}) =>(
+                        <>
+                        <div className="flex">
+                            {/* <img className="size-8 mr-1" src={dustbin_icon} /> */}
+                            {
+                                isActive ?
+                                <DeleteIcon style={{fontSize:"28px"}} /> :
+                                <DeleteOutline style={{fontSize:"28px"}} />
+                            }
+                        </div>
+                        <div>Bin</div>
+                        </>
+                    )
+                }
                 </NavLink>
             </div>
         </aside>

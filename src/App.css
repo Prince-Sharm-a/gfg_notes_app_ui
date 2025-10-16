@@ -161,9 +161,15 @@ main{
   /* margin: 0 40%; */
   justify-content: center;
   /* align-items: flex-start; */
-  transition: all 1s ease;
-  transform: translateX(0);
+  transition: transform 1.3s ease;
+  transform: translateX(0);  
+}
+.main-lightmode{
   background: url(./freepik__talk__53350.png);
+  background-size: cover;
+}
+.main-darkmode{
+  background: url(./freepik__upload__32031.png);
   background-size: cover;
 }
 
@@ -272,7 +278,7 @@ main{
 }
 
 .notes-card{
-  border: 1px solid rgb(173, 255, 47);
+  border: 1px solid #adff2f;
   border-radius: 20px;
   padding: 5px;
   margin-top: 5px;

@@ -3,7 +3,8 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState={
     isMenuActive:false,
     isMenuClicked:false,
-    isNoteSecActive:false
+    // isNoteSecActive:false,
+    DarkMode:false
 }
 
 const componentSlice=createSlice({
@@ -16,11 +17,14 @@ const componentSlice=createSlice({
         setMenuClicked:(state,action)=>{
             state.isMenuClicked= !state.isMenuClicked;
         },
-        setNoteSecActive:(state,action)=>{
-            state.isNoteSecActive= action.payload ? action.payload?.NoteSecActive : !state.isNoteSecActive;
+        // setNoteSecActive:(state,action)=>{
+        //     state.isNoteSecActive= action.payload ? action.payload?.NoteSecActive : !state.isNoteSecActive;
+        // },
+        setDarkMode:(state,action)=>{
+            state.DarkMode = !state.DarkMode
         }
     }
 })
 
-export const { setMenuActive, setMenuClicked, setNoteSecActive } = componentSlice.actions;
+export const { setMenuActive, setMenuClicked, setDarkMode } = componentSlice.actions;
 export default componentSlice.reducer;
