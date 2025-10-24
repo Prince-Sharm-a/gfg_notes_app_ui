@@ -5,23 +5,23 @@ import { setNoteSecActive } from "../../slices/componentSlice";
 import { getNotes } from "../../api/notes";
 
 export const NotesSection=memo(({data})=>{
-    const dispatch = useDispatch();
-    const { isNoteSecActive } = useSelector(state=>state.activeComponent)
-    // const [isNoteSecActive,setNoteSecActive]=useState(false)
+    // const dispatch = useDispatch();
+    // const { isNoteSecActive } = useSelector(state=>state.activeComponent)
+    const [isNoteSecActive,setNoteSecActive]=useState(false)
 
 
     const handleNoteSecClick =()=>{
-        // setNoteSecActive(!isNoteSecActive)
-        dispatch(setNoteSecActive());
+        setNoteSecActive(!isNoteSecActive)
+        // dispatch(setNoteSecActive());
     }
 
-    useEffect(()=>{
-        dispatch(setNoteSecActive({NoteSecActive:false}))
-        console.log("note section ",data)
-        // return ()=>{
-        //     dispatch(setNoteSecActive({NoteSecActive:false}))
-        // }
-    },[])
+    // useEffect(()=>{
+    //     // dispatch(setNoteSecActive({NoteSecActive:false}))
+    //     console.log("note section ",data)
+    //     // return ()=>{
+    //     //     dispatch(setNoteSecActive({NoteSecActive:false}))
+    //     // }
+    // },[])
 
     return (
         <>

@@ -2,7 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import { Navbar } from './components/Navbar';
 import { Home } from './pages/home';
-import { Route, Router, Routes } from 'react-router-dom';
+import { Navigate, Route, Router, Routes } from 'react-router-dom';
 import { Sidebar } from './components/Sidebar';
 import { Important } from './pages/important';
 import { Archive } from './pages/archive';
@@ -22,7 +22,7 @@ function App() {
     <>
     <Provider store={store}>
       <Routes>
-        <Route path='/' element={<Home></Home>}></Route>
+        <Route path='/' element={<><Navigate to={'/home'} /></>}></Route>
         <Route path='/home' element={<Home></Home>}></Route>
         <Route path='/important' element={<Important></Important>}></Route>
         <Route path='/archive' element={<Archive></Archive>}></Route>
