@@ -7,7 +7,7 @@ import { NotesSection } from "../../components/NotesSection";
 import { useSelector } from "react-redux";
 
 export const Archive=memo(()=>{
-    const { archive } = useSelector(state => state.note);
+    const { notes } = useSelector(state => state.note);
     
     return (
         <>
@@ -15,7 +15,7 @@ export const Archive=memo(()=>{
         <Sidebar />
         <main>
             <NotesInput archive={true}/>
-            <NotesSection data={archive}/>
+            <NotesSection data={notes.filter(n => n.archive && !n.isdeleted)}/>
         </main>
         </>
     )

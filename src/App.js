@@ -10,13 +10,14 @@ import { Bin } from './pages/bin';
 import { Provider, useDispatch } from 'react-redux';
 import { store } from './store/store';
 import { useDebugValue, useEffect } from 'react';
-import { getNotes } from './api/notes';
+import { get_deleted_Notes, getNotes } from './api/notes';
 
 function App() {
   const dispatch = useDispatch();
 
   useEffect(()=>{
       dispatch(getNotes());
+      // dispatch(get_deleted_Notes());
   },[])
   return (
     <>
