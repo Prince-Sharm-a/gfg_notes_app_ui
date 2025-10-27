@@ -1,16 +1,16 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
-import { Navbar } from './components/Navbar';
+// import { Navbar } from './components/Navbar';
 import { Home } from './pages/home';
 import { Navigate, Route, Router, Routes } from 'react-router-dom';
-import { Sidebar } from './components/Sidebar';
+// import { Sidebar } from './components/Sidebar';
 import { Important } from './pages/important';
 import { Archive } from './pages/archive';
 import { Bin } from './pages/bin';
 import { Provider, useDispatch } from 'react-redux';
 import { store } from './store/store';
-import { useDebugValue, useEffect } from 'react';
-import { get_deleted_Notes, getNotes } from './api/notes';
+import { useEffect } from 'react';
+import { getNotes } from './api/notes';
 
 function App() {
   const dispatch = useDispatch();
@@ -18,7 +18,7 @@ function App() {
   useEffect(()=>{
       dispatch(getNotes());
       // dispatch(get_deleted_Notes());
-  },[])
+  },[dispatch])
   return (
     <>
     <Provider store={store}>
