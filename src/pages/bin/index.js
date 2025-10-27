@@ -25,7 +25,7 @@ export const Bin=memo(()=>{
         <Navbar />
         <Sidebar />
         <main className="justify-start">
-            <div >
+            <div className="flex gap-4 ml-4">
             {
                 deletedNotes.length > 0 && deletedNotes.map(note=>(
                 <div className="notes-card" key={note?.id}>
