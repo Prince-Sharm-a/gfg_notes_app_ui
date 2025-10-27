@@ -1,7 +1,7 @@
 import axios from "axios"
-import { memo, useCallback, useEffect, useState } from "react"
+import { memo, use, useCallback, useEffect, useState } from "react"
 import AddIcon from '@mui/icons-material/Add';
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addNotes, getNotes } from "../../api/notes";
 
 export const NotesInput=memo((props)=>{
@@ -13,6 +13,12 @@ export const NotesInput=memo((props)=>{
     }
     const [note,setNote]=useState(initialState)
     const dispatch = useDispatch()
+    const { DarkMode } = useSelector(state=> state.activeComponent);
+    useEffect(()=>{
+        document.getElementsByTagName('textarea')[0].style.backgroundColor= DarkMode ? 'rgb(255,255,255,0.1)' : 'rgb(0,0,0,0.1)'
+        document.getElementsByTagName('textarea')[1].style.backgroundColor= DarkMode ? 'rgb(255,255,255,0.1)' : 'rgb(0,0,0,0.1)'
+        document.getElementById('note-add-button').style.backgroundColor= DarkMode ? 'rgb(255, 255, 255, 0.3)' : 'rgb(43,43,43,0.3)'
+    },[DarkMode])
     useEffect(()=>{
         setNote({...initialState,important:props.important || false,archive:props.archive || false})
         // console.log("useEffect",note)

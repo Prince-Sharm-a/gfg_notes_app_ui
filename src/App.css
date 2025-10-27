@@ -161,7 +161,7 @@ main{
   /* margin: 0 40%; */
   justify-content: center;
   /* align-items: flex-start; */
-  transition: transform 1.3s ease;
+  transition: all 1.3s ease;
   transform: translateX(0);  
 }
 .main-lightmode{
@@ -171,6 +171,7 @@ main{
 .main-darkmode{
   background: url(./freepik__upload__32031.png);
   background-size: cover;
+  color:white
 }
 
 .note-input-jsx{
@@ -191,17 +192,18 @@ main{
   border-radius: 10px;
   border-style: inset;
   margin-bottom: 5px;
-  /* background-color: whitesmoke; */
+  /* background-color: rgb(43, 43, 43); */
 }
 .note-input-jsx textarea{
   width: 300px;
   padding: 5px;
   border-radius: 10px;
-  border:1px solid whitesmoke;
-  /* background-color: whitesmoke; */
+  border:2px solid whitesmoke;
   border-style: inset;
   resize: none;
-  background: none;
+  background: rgb(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
   scrollbar-width: none;
   outline: none;
 }
@@ -223,8 +225,8 @@ main{
   font-weight: 500;
   justify-content: center;
   align-items: center;
-  border:1px solid whitesmoke;
-  border-style: outset;
+  border:2px solid whitesmoke;
+  border-style: initial;
   border-radius: 15px;
 }
 
@@ -259,13 +261,13 @@ main{
   position: absolute;
   right: 0px;
   width: 300px;
-  border:1px solid rgb(173, 255, 47);
+  border:2px solid rgb(173, 255, 47);
   border-style: outset;
   height: calc(100vh - 100px);
   overflow-y: auto;
   transition: all 1s ease-in-out;
   transform: translateX(0px);
-  background-color:none;
+  background-color: rgb(0,0,0,0.05);
   margin-right: 5px;
   scroll-behavior: smooth;
   scrollbar-width: none;
@@ -278,7 +280,8 @@ main{
 }
 
 .notes-card{
-  border: 1px solid #adff2f;
+  border: 2px solid #adff2f;
+  background-color: rgb(40, 44, 52,0.05);
   border-radius: 20px;
   padding: 5px;
   margin-top: 5px;

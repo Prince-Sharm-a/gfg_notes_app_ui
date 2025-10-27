@@ -16,7 +16,7 @@ export const Home=memo(()=>{
         <Sidebar />
         <main>
             <NotesInput/>
-            <NotesSection data={notes}/>
+            <NotesSection data={notes.filter(n=> !n.isdeleted)}/>
         </main>
         </>
     )

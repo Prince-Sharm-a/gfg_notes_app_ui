@@ -7,7 +7,7 @@ import { NotesSection } from "../../components/NotesSection";
 import { useSelector } from "react-redux";
 
 export const Important=memo(()=>{
-    const { important }=useSelector(state => state.note);
+    const { notes }=useSelector(state => state.note);
     
     return (
         <>
@@ -15,7 +15,7 @@ export const Important=memo(()=>{
         <Sidebar />
         <main>
             <NotesInput important={true}/>
-            <NotesSection data={important} />
+            <NotesSection data={notes.filter(n => n.important && !n.isdeleted)} />
         </main>
         </>
     )
