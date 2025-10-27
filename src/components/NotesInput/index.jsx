@@ -1,5 +1,4 @@
-import axios from "axios"
-import { memo, use, useCallback, useEffect, useState } from "react"
+import { memo, useCallback, useEffect, useState } from "react"
 import AddIcon from '@mui/icons-material/Add';
 import { useDispatch, useSelector } from "react-redux";
 import { addNotes, getNotes } from "../../api/notes";
@@ -22,7 +21,7 @@ export const NotesInput=memo((props)=>{
     useEffect(()=>{
         setNote({...initialState,important:props.important || false,archive:props.archive || false})
         // console.log("useEffect",note)
-    },[])
+    },[dispatch])
     const ontitleChange=(e)=>{
         setNote({...note,title:e.target.value})
     }
@@ -30,7 +29,7 @@ export const NotesInput=memo((props)=>{
         setNote({...note,note:e.target.value})
     }
 
-    const handleAddButton=useCallback(async ()=>{
+    const handleAddButton=async ()=>{
         try{
             // await axios.post('/add_note',{
             //     new_note:note
@@ -45,7 +44,7 @@ export const NotesInput=memo((props)=>{
         catch(e){
             return e.message
         }
-    },[note])
+    }
 
     return(
         <>

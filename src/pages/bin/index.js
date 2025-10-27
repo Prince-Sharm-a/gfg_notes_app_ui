@@ -1,23 +1,15 @@
-import { memo, useEffect, useRef, useState } from "react";
+import { memo, useEffect } from "react";
 import { Navbar } from "../../components/Navbar";
 import { Sidebar } from "../../components/Sidebar";
-import { NotesInput } from "../../components/NotesInput";
 import { useDispatch, useSelector } from "react-redux";
 import { get_deleted_Notes } from "../../api/notes";
-import ArticleIcon from "@mui/icons-material/Article"
 
 export const Bin=memo(()=>{
     const dispatch = useDispatch();
-    const [isNoteSecActive,setNoteSecActive]=useState(false)
     // console.log(data);
-    
-    const handleNoteSecClick =()=>{
-        setNoteSecActive(!isNoteSecActive)
-        // dispatch(setNoteSecActive());
-    }
     useEffect(()=>{
         dispatch(get_deleted_Notes());
-    },[])
+    },[dispatch])
     const { deletedNotes } = useSelector(state => state.note)
     // console.log("bin:",deletedNotes);
     return (
