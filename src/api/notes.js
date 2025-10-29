@@ -44,8 +44,8 @@ export const deleteNotes=(note_id)=> async dispatch=>{
 
 export const move_to_trash = (note_id)=>async dispatch=>{
     try{
-        await axios.delete(`/move_to_bin?note_id=${note_id}`);
         dispatch(moveNotetoTrash({id:note_id}))
+        await axios.delete(`/move_to_bin?note_id=${note_id}`);
     }
     catch(err){
         return err.message
@@ -54,8 +54,8 @@ export const move_to_trash = (note_id)=>async dispatch=>{
 
 export const make_important=(note_id)=> async dispatch=>{
     try{
-        const data = await axios.put(`/make_important_note?note_id=${note_id}`);
         dispatch(makeNoteImportant({id:note_id}));
+        const data = await axios.put(`/make_important_note?note_id=${note_id}`);
         return data;
     }catch(err){
         return err.message
@@ -64,8 +64,8 @@ export const make_important=(note_id)=> async dispatch=>{
 
 export const make_archive=(note_id)=> async dispatch=>{
     try{
-        const data = await axios.put(`/make_archive_note?note_id=${note_id}`);
         dispatch(makeNoteArchive({id:note_id}));
+        const data = await axios.put(`/make_archive_note?note_id=${note_id}`);
         return data;
     }catch(err){
         return err.message

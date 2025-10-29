@@ -2,6 +2,8 @@ import { memo, useCallback, useEffect, useState } from "react"
 import AddIcon from '@mui/icons-material/Add';
 import { useDispatch, useSelector } from "react-redux";
 import { addNotes, getNotes } from "../../api/notes";
+import { v4 as uuid } from 'uuid'
+import { setnotes } from "../../slices/notesSlice";
 
 export const NotesInput=memo((props)=>{
     const initialState={
@@ -10,6 +12,7 @@ export const NotesInput=memo((props)=>{
         important:false,
         archive:false
     }
+    const { notes } = useSelector(state => state.note)
     const [note,setNote]=useState(initialState)
     const dispatch = useDispatch()
     const { DarkMode } = useSelector(state=> state.activeComponent);
@@ -36,6 +39,7 @@ export const NotesInput=memo((props)=>{
             // })
             // console.log(note)
             if(note.title.length > 0 ){
+                dispatch(setnotes([...notes,{...note,id:uuid()}]))
                 await dispatch(addNotes(note))
             }
             setNote({...note,title:'',note:''});
